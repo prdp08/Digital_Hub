@@ -1,0 +1,45 @@
+﻿@model Digital_Hub.Models.Category_Detail
+
+@{ ViewData["Title"] = "Edit"; }
+<style>
+    body {
+        background-image: url(https://images.hindustantimes.com/tech/img/2021/07/29/1600x900/Computer_7_1625598424996_1627537012527.jpg);
+    }
+</style>
+<!--code to display the edit page of the table-->
+<h1>Edit</h1>
+<p>
+    <a asp-action="Create" class="btn btn-info">Create New</a>
+</p>
+<div style="background-color:aliceblue;">
+    <h4>Category Detail</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Product" class="control-label">Product</label>
+                    <input asp-for="Product" class="form-control" />
+                    <span asp-validation-for="Product" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Category_Type" class="control-label">Category Type</label>
+                    <input asp-for="Category_Type" class="form-control" />
+                    <span asp-validation-for="Category_Type" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Digital_Hub.Models.Customer_Detail>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    body {
+        background-image: url(https://images.hindustantimes.com/tech/img/2021/07/29/1600x900/Computer_7_1625598424996_1627537012527.jpg);
+    }
+</style>
+<!--code of the index page-->
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-info">Create New</a>
+</p>
+<div style="background-color:aliceblue;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Customer Name
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Phone
+                </th>
+                <th>
+                    Delivery Address
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Customer_Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Phone)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Delivery_Address)
+    </td>
+    <td>
+        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+    </td>
+</tr>
+}
+        </tbody>
+    </table>
+</div>
